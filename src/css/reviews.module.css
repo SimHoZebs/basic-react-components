@@ -1,0 +1,140 @@
+p {
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #f1f5f8;
+}
+
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header__text {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.header__underline {
+  width: 5rem;
+  height: 0.25rem;
+  background-color: #49a6ed;
+  margin-bottom: 4rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  width: 620px;
+  max-width: 90vw;
+  height: 418px;
+  padding: 24px 32px;
+  background-color: white;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.25);
+}
+
+.card__arrowButtonContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card__arrowButton {
+  width: 20px;
+  height: 20px;
+  border: none;
+  margin: 0px 0.5rem;
+}
+
+.card__surpriseMeButton {
+  text-transform: capitalize;
+  margin-top: 1rem;
+  width: max-content;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  background-color: #ebf7ff;
+  color: #49a6ed;
+  cursor: pointer;
+}
+
+.card__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info {
+  text-align: center;
+}
+
+.info__imgDecorContainer {
+  position: absolute;
+  left: -5px;
+  top: -130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: #49a6ed;
+}
+
+.info__picture {
+  position: relative;
+}
+
+.info__imgDecor {
+  width: 14px;
+  height: 14px;
+  background-color: #49a6ed;
+}
+
+.info__img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0.5rem -0.25rem 1px 1px #49a6ed;
+}
+
+.info__name {
+  margin-top: 1.5rem;
+  margin-bottom: 4px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.info__job {
+  margin-bottom: 8px;
+  color: #49a6ed;
+}
+
+.info__text {
+  margin-bottom: 0.75rem;
+}

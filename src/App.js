@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+import Reviews from "./Reviews";
+import BirthdayReminder from "./BirthdayReminder";
+
+
+const App = () => {
+  const projectList = [Reviews, BirthdayReminder];
+
+  const [CurrViewProject, setCurrViewProject] = useState(() => Reviews);
+
+  function viewProject(project) {
+    setCurrViewProject(prev => project)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {projectList.map((project) => (
+        <button onClick={() => viewProject(project)}>{project.name}</button>
+      ))}
+
+      <div>
+
+        <CurrViewProject />
+      </div>
     </div>
   );
-}
+};
 
 export default App;

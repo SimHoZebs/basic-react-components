@@ -1,0 +1,27 @@
+p {
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: purple;
+}
+
+.accordion {
+  background-color: white;
+  width: 57.5rem;
+  height: 57.75rem;
+}
+
+.card__header {
+  display: flex;
+}
+
+.card__question {
+  font-weight: 700;
+}
