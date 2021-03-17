@@ -9,7 +9,6 @@ export default function OurTours() {
   async function fetchTourData() {
     const res = await fetch("https://course-api.com/react-tours-project");
     const json = await res.json();
-    console.log(json);
     setTourData((prev) => json);
     setIsLoading((prev) => false);
   }
@@ -19,7 +18,6 @@ export default function OurTours() {
   }, []);
 
   function removeCard(id) {
-    console.log(id);
     setTourData((prev) => prev.filter((card) => card.id !== id));
   }
   function siteRefresh() {
@@ -27,46 +25,41 @@ export default function OurTours() {
     fetchTourData();
   }
 
-  return (
-    <div className={`${style.container} ${style.flexContainer} ${style.flexColumn} ${style.alignCenter}`}>
-      <Header
-        tourData={tourData}
-        isLoading={isLoading}
-        siteRefresh={siteRefresh}
-      />
+  return <div className={`${style.container} ${style.flexContainer} ${style.flexColumn} ${style.alignCenter}`}>
+    <Header
+      tourData={tourData}
+      isLoading={isLoading}
+      siteRefresh={siteRefresh}
+    />
 
-      { tourData.map((tour) => (
-        <CardDisplay
-          key={tour.id}
-          id={tour.id}
-          image={tour.image}
-          name={tour.name}
-          price={tour.price}
-          info={tour.info}
-          removeCard={removeCard}
-        />
-      ))}
-    </div >
-  );
+    {tourData.map((tour) => (
+      <CardDisplay
+        key={tour.id}
+        id={tour.id}
+        image={tour.image}
+        name={tour.name}
+        price={tour.price}
+        info={tour.info}
+        removeCard={removeCard}
+      />
+    ))}
+  </div >
 };
 
 function Header({ tourData, isLoading, siteRefresh }) {
-  return (
+  return <header className={`${style.siteHeader} ${style.flexContainer} ${style.flexColumn} ${style.alignCenter}`}>
+    {isLoading
+      ? <p> Loading...</p>
+      : tourData.length === 0
+        ? <p>No Tours Left</p>
+        : <p>Our Tours</p>}
 
-    <header className={`${style.siteHeader} ${style.flexContainer} ${style.flexColumn} ${style.alignCenter}`}>
-      { isLoading
-        ? <p> Loading...</p>
-        : tourData.length === 0
-          ? <p>No Tours Left</p>
-          : <p>Our Tours</p>}
+    <div className={style.siteHeader__underline}></div>
 
-      <div className={style.siteHeader__underline}></div>
-
-      { tourData.length === 0 && (
-        <button className={style.siteHeader__refresh} onClick={siteRefresh}> Refresh </button>
-      )}
-    </header >
-  )
+    {tourData.length === 0 && (
+      <button className={style.siteHeader__refresh} onClick={siteRefresh}> Refresh </button>
+    )}
+  </header >
 }
 
 function CardDisplay(props) {
@@ -77,28 +70,25 @@ function CardDisplay(props) {
     setReadmMoreClicked((prev) => (prev === true ? false : true));
   }
 
-  return (
+  return <article className={`${style.tourCard} ${style.flexContainer} ${style.flexColumn} ${style.alignCenter}`}>
+    <img src={props.image} alt="" className={style.tourCard__image} />
 
-    <article className={`${style.tourCard} ${style.flexContainer} ${style.flexColumn} ${style.alignCenter}`}>
-      <img src={props.image} alt="" className={style.tourCard__image} />
+    <header className={style.flexContainer}>
+      <p className={style.tourCard__title}> {props.name}</p>
+      <p className={style.tourCard__price}>${props.price}</p>
+    </header>
 
-      <header className={style.flexContainer}>
-        <p className={style.tourCard__title}> {props.name}</p>
-        <p className={style.tourCard__price}>${props.price}</p>
-      </header>
+    <p className={style.tourCard__summary}>
+      {readMoreClicked ? props.info : shortInfo + "..."}
 
-      <p className={style.tourCard__summary}>
-        {readMoreClicked ? props.info : shortInfo + "..."}
+      <button className={style.tourCard__readMore} onClick={showReadMore}>
+        {readMoreClicked ? "Show Less" : "Read More"}
+      </button >
+    </p >
 
-        <button className={style.tourCard__readMore} onClick={showReadMore}>
-          {readMoreClicked ? "Show Less" : "Read More"}
-        </button >
-      </p >
-
-      <button
-        className={style.tourCard__notInterested}
-        onClick={() => props.removeCard(props.id)}
-      > Not Interested </button >
-    </article >
-  );
+    <button
+      className={style.tourCard__notInterested}
+      onClick={() => props.removeCard(props.id)}
+    > Not Interested </button >
+  </article >
 }

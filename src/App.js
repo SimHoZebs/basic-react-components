@@ -34,25 +34,27 @@ const App = () => {
   const [CurrViewProject, setCurrViewProject] = useState(() => BirthdayReminder);
 
   function viewProject(id) {
-    console.log(id);
     setCurrViewProject(prev => projectList[id].component)
   }
 
-  return (
-    <div >
-      <div className={app.buttonsContainer}>
+  return <div className={app.container}>
+    <div className={app.buttonsContainer}>
 
-        {projectList.map((project) => (
-          <button onClick={() => viewProject(project.id)}>{project.name}</button>
-        ))}
-      </div>
-
-      <div className={app.projectContainer}>
-
-        <CurrViewProject />
-      </div>
+      {projectList.map((project) =>
+        <button
+          onClick={
+            () => viewProject(project.id)
+          }
+          className={app.button}
+        >{project.name}</button>
+      )}
     </div>
-  );
+
+    <main className={app.projectContainer}>
+
+      <CurrViewProject />
+    </main>
+  </div>
 };
 
 export default App;

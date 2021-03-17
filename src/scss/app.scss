@@ -1,7 +1,23 @@
+.container {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.button {
+  font-weight: 300;
+  font-size: 1.1rem;
+  padding: 1.5rem;
+  margin: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+}
+
 .buttonsContainer {
-  height: 5vh;
+  height: max-content;
 }
 
 .projectContainer {
-  height: 95vh;
+  height: 100%;
 }

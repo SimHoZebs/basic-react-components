@@ -1,5 +1,3 @@
-import React from 'react'
-
 let id = 0
 
 const imageLink = "https://images.unsplash.com/photo-1614270532523-e1978d1f3716?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYxNTQ0ODMxNQ&ixlib=rb-1.2.1&q=85"

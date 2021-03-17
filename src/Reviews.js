@@ -27,78 +27,72 @@ const Reviews = () => {
   function randomReviewer(id) {
     let randomId = id
     const maxId = reviewsData.length
-    console.log("current reviewer id is ", randomId);
 
     while (randomId === id) {
       randomId = Math.floor(Math.random() * (maxId)) + 1
     }
 
-    console.log("changed reviewer id to ", randomId);
     setCurrentReviewId(prev => randomId)
   }
 
-  return (
-    <div className={reviews.appContainer}>
-      < header className={reviews.header}>
-        < p className={reviews.header__text}>Our Reviews</p>
-        < div className={reviews.header__underline}></div>
-      </header >
-      <section className={reviews.card}>
-        < ReviewerInfo
-          key={id}
-          id={id}
-          image={image}
-          name={name}
-          job={job.toUpperCase()}
-          text={text}
-        />
+  return <div className={reviews.appContainer}>
+    <header className={reviews.header}>
+      <p className={reviews.header__text}>Our Reviews</p>
+      <div className={reviews.header__underline}></div>
+    </header>
+    <section className={reviews.card}>
+      < ReviewerInfo
+        key={id}
+        id={id}
+        image={image}
+        name={name}
+        job={job.toUpperCase()}
+        text={text}
+      />
 
-        <footer className={reviews.card__footer}>
-          < div className={reviews.card__arrowButtonContainer}>
-            < input
-              type="image"
-              src={arrowLeft}
-              alt=""
-              className={reviews.card__arrowButton}
-              onClick={() => nextReviewer(-1)}
-            />
+      <footer className={reviews.card__footer}>
+        <div className={reviews.card__arrowButtonContainer}>
+          <input
+            type="image"
+            src={arrowLeft}
+            alt=""
+            className={reviews.card__arrowButton}
+            onClick={() => nextReviewer(-1)}
+          />
 
-            < input
-              type="image"
-              src={arrowRight}
-              alt=""
-              className={reviews.card__arrowButton}
-              onClick={() => nextReviewer(1)}
-            />
-          </div >
+          <input
+            type="image"
+            src={arrowRight}
+            alt=""
+            className={reviews.card__arrowButton}
+            onClick={() => nextReviewer(1)}
+          />
+        </div >
 
-          <button className={reviews.card__surpriseMeButton} onClick={() => randomReviewer(id)}>surprise me</button>
-        </footer >
-      </section >
-    </div >
-  );
+        <button className={reviews.card__surpriseMeButton} onClick={() => randomReviewer(id)}>surprise me</button>
+      </footer>
+    </section>
+  </div>
 };
 
 function ReviewerInfo(props) {
-  return (
-    <article className={reviews.info} id={props.id}>
-      <picture className={reviews.info__picture}>
-        <div className={reviews.info__imgDecorContainer} >
-          <img src={quotationMarks} alt="" className={reviews.info__imgDecor} />
-        </div >
+  return <article className={reviews.info} id={props.id}>
+    <picture className={reviews.info__picture}>
+      <div className={reviews.info__imgDecorContainer} >
+        <img src={quotationMarks} alt="" className={reviews.info__imgDecor} />
+      </div>
 
-        <img
-          src={props.image}
-          className={reviews.info__img}
-          alt="Portrait of the reviewer"
-        />
-      </picture >
+      <img
+        src={props.image}
+        className={reviews.info__img}
+        alt="Portrait of the reviewer"
+      />
+    </picture>
 
-      <p className={reviews.info__name}>{props.name}</ p>
-      <p className={reviews.info__job}>{props.job}</p>
-      <p className={reviews.info__text}>{props.text}</p>
-    </article >
-  );
+    <p className={reviews.info__name}>{props.name}</p>
+    <p className={reviews.info__job}>{props.job}</p>
+    <p className={reviews.info__text}>{props.text}</p>
+  </article>
 }
 
 export default Reviews;

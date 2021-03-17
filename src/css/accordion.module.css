@@ -1,17 +1,71 @@
 .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: purple;
+  width: 100%;
+  height: 100%;
 }
 
 .accordion {
-  background-color: white;
   width: 57.5rem;
-  height: 57.75rem;
+  max-width: 90vw;
+  padding: 2.5rem 2rem;
+  border-radius: 0.25rem;
+  background-color: white;
+}
+
+@media (min-width: 991px) {
+  .accordion {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.accordion__header {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 991px) {
+  .accordion__header {
+    margin-right: 2rem;
+  }
+}
+
+.cardContainer {
+  overflow: auto;
+  width: 100%;
+}
+
+.card {
+  object-fit: contain;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.25);
+  padding: 1rem 1.5rem;
+  border: 1px solid #eae6eb;
 }
 
 .card__header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .card__question {
   font-weight: 700;
+}
+
+.card__button {
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  color: purple;
+  height: 2rem;
+  width: 2rem;
+}
+
+.card__answer {
+  margin-top: 0.5rem;
 }
