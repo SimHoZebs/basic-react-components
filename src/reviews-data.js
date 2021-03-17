@@ -1,4 +1,4 @@
-const reviewsDataOrigin = [
+const reviewsData = [
     {
         id: 1,
         name: 'susan smith',
@@ -37,4 +37,4 @@ const reviewsDataOrigin = [
     },
 ];
 
-export default reviewsDataOrigin;
+export default reviewsData;

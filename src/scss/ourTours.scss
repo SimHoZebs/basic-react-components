@@ -1,0 +1,106 @@
+$font-color: #49aeef;
+$background-color: #ebf7ff;
+
+.flexContainer {
+  display: flex;
+}
+
+.flexColumn {
+  flex-direction: column;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.container {
+  background-color: $background-color;
+}
+
+.siteHeader {
+  font-size: 3rem;
+  text-align: center;
+  margin: 20px;
+  font-weight: 900;
+
+  &__underline {
+    margin-top: 10px;
+    width: 80%;
+    height: 5px;
+    background-color: #49aeef;
+  }
+
+  &__refresh {
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    background: $background-color;
+    color: $font-color;
+    border: 1px solid $font-color;
+  }
+}
+
+.tourCard {
+  background-color: white;
+  margin: 20px 0px;
+  font-size: 1.2rem;
+  width: 800px;
+  max-width: 95vw;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.418);
+
+  &__image {
+    border-radius: 10px 10px 0px 0px;
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+  }
+
+  header {
+    justify-content: space-between;
+    margin: 20px;
+    margin-bottom: 0px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 1.5rem;
+    vertical-align: middle;
+    line-height: normal;
+  }
+
+  &__price {
+    font-weight: 700;
+    background-color: $background-color;
+    height: min-content;
+    color: $font-color;
+    border-radius: 5px;
+    padding: 8px 5px;
+  }
+
+  &__summary {
+    font-weight: 300;
+    text-align: left;
+    margin: 20px 15px;
+  }
+
+  &__readMore {
+    border: none;
+    background-color: white;
+    font-size: 1.2rem;
+    color: $font-color;
+  }
+
+  &__notInterested {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: red;
+
+    border: 1px solid red;
+    border-radius: 8px;
+    background-color: white;
+    padding: 8px 30px;
+    align-self: center;
+  }
+}

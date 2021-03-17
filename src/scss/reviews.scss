@@ -1,16 +1,12 @@
 $primary-color: #49a6ed;
 
-body {
-  margin: 0;
-  background-color: #f1f5f8;
-}
-
 .appContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  background-color: #f1f5f8;
+  height: 100%;
 }
 
 .header {
