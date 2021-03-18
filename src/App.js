@@ -1,46 +1,20 @@
 import React, { useState } from "react";
 
-import Reviews from "./Reviews";
-import BirthdayReminder from "./BirthdayReminder";
-import Accordion from "./Accordion"
-import OurTours from './OurTours'
+import appData from './App-data'
 
 import app from "./css/app.module.css"
 
 const App = () => {
-  const projectList = [
-    {
-      id: 0,
-      component: Reviews,
-      name: "Reviews"
-    },
-    {
-      id: 1,
-      component: BirthdayReminder,
-      name: "Birthday Reminder"
-    },
-    {
-      id: 2,
-      component: Accordion,
-      name: "Accordion"
-    },
-    {
-      id: 3,
-      component: OurTours,
-      name: "Our Tours"
-    }
-  ];
-
-  const [CurrViewProject, setCurrViewProject] = useState(() => BirthdayReminder);
+  const [CurrViewProject, setCurrViewProject] = useState(() => appData[0].component);
 
   function viewProject(id) {
-    setCurrViewProject(prev => projectList[id].component)
+    setCurrViewProject(prev => appData[id].component)
   }
 
   return <div className={app.container}>
     <div className={app.buttonsContainer}>
 
-      {projectList.map((project) =>
+      {appData.map((project) =>
         <button
           onClick={
             () => viewProject(project.id)

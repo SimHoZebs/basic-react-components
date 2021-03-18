@@ -1,5 +1,4 @@
 $font-color: #49aeef;
-$background-color: #ebf7ff;
 
 .flexContainer {
   display: flex;
@@ -57,7 +56,7 @@ $background-color: #ebf7ff;
     object-fit: cover;
   }
 
-  header {
+  &__header {
     justify-content: space-between;
     margin: 20px;
     margin-bottom: 0px;
