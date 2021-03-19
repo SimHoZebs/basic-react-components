@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import style from "./css/menu.module.css"
 import menuData from "./Menu-data"
 
@@ -7,15 +7,20 @@ function Menu() {
 
   function menuFilter(category) {
     setCurrView(prev => menuData.filter(item => (
-      item.category !== category
+      item.category === category
     )))
   }
 
+  function clearMenuFilter() {
+    setCurrView(prev => menuData);
+  }
+
   return (
-    <div className={style.page}>
-      <Header></Header>
+    <div className={style.menu}>
+      <Header />
       <Navbar
-        onClick={menuFilter}
+        menuFilter={menuFilter}
+        clearMenuFilter={clearMenuFilter}
       />
 
       <ItemList currView={currView} />
@@ -26,7 +31,7 @@ function Menu() {
 
 function Header() {
   return <header className={style.header}>
-    <p className={style.header__text}>Our Menu</p>
+    <h2 className={style.header__text}>Our Menu</h2>
     <div className={style.header__underline}></div>
   </header>
 }
@@ -42,12 +47,15 @@ function Navbar(props) {
   })
 
   return <nav className={style.navbar}>
-    <button className={style.navbar__button}>All</button>
+    <button
+      className={style.navbar__button}
+      onClick={props.clearMenuFilter}
+    >All</button>
 
     {categories.map(category => (
       <button
         className={style.navbar__button}
-        onClick={() => props.menuFilter(category)}
+        onClick={() => (props.menuFilter(category))}
       >{category}</button>
     ))}
   </nav>
