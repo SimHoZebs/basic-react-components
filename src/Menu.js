@@ -1,29 +1,40 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import style from "./css/menu.module.css"
 import menuData from "./Menu-data"
 
 function Menu() {
-  const [currView, setCurrView] = useState(menuData);
+  const [categoryData, setCategoryData] = useState(menuData);
+  const [currCategory, setCurrCategory] = useState()
 
-  function menuFilter(category) {
-    setCurrView(prev => menuData.filter(item => (
-      item.category === category
-    )))
-  }
+  useEffect(() => {
+    setCurrCategory(document.getElementById("all"))
+    console.log("navbar useeffect");
+  }, [])
 
-  function clearMenuFilter() {
-    setCurrView(prev => menuData);
+  function categoryButtonClick(category) {
+    currCategory.classList.remove(style.navbar__button_clicked)
+    if (category === undefined) {
+      setCategoryData(prev => menuData);
+      setCurrCategory(prev => document.getElementById("all"))
+    }
+    else {
+      setCategoryData(prev => menuData.filter(item => item.category === category))
+      setCurrCategory(prev => document.getElementById(`${category}`))
+    }
+
+    setCurrCategory(prev => { prev.classList.add(style.navbar__button_clicked); return prev })
   }
 
   return (
     <div className={style.menu}>
       <Header />
       <Navbar
-        menuFilter={menuFilter}
-        clearMenuFilter={clearMenuFilter}
+        categoryButtonClick={categoryButtonClick}
+        currCategory={currCategory}
+        setCurrCategory={setCurrCategory}
       />
 
-      <ItemList currView={currView} />
+      <ItemList currView={categoryData} />
 
     </div>
   )
@@ -48,14 +59,16 @@ function Navbar(props) {
 
   return <nav className={style.navbar}>
     <button
-      className={style.navbar__button}
-      onClick={props.clearMenuFilter}
+      id="all"
+      className={`${style.navbar__button} ${style.navbar__button_clicked}`}
+      onClick={() => props.categoryButtonClick()}
     >All</button>
 
     {categories.map(category => (
       <button
+        id={category}
         className={style.navbar__button}
-        onClick={() => (props.menuFilter(category))}
+        onClick={() => (props.categoryButtonClick(category))}
       >{category}</button>
     ))}
   </nav>

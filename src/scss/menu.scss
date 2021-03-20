@@ -9,7 +9,7 @@ $gold-color: #c59d5f;
   align-items: center;
   max-height: max-content;
   min-height: 100%;
-  padding: 80px 0;
+  padding: 5rem 0;
 }
 
 .header {
@@ -28,7 +28,6 @@ $gold-color: #c59d5f;
 }
 
 .navbar {
-  text-align: center;
   margin-bottom: 4rem;
 
   &__button {
@@ -47,7 +46,7 @@ $gold-color: #c59d5f;
       color: white;
     }
 
-    &--clicked {
+    &_clicked {
       background-color: $gold-color;
       color: white;
     }
@@ -75,9 +74,6 @@ $gold-color: #c59d5f;
     height: 9.375rem;
     object-fit: cover;
     margin-right: 1.25rem;
-  }
-
-  &__section {
   }
 
   &__header {
