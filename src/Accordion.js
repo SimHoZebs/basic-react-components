@@ -13,6 +13,7 @@ const Accordion = () => {
       <section className={style.cardContainer}>
         {accordionData.map(card =>
           <Card
+            key={card.id}
             question={card.question}
             answer={card.answer}
           />

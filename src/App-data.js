@@ -3,6 +3,7 @@ import BirthdayReminder from "./BirthdayReminder";
 import Accordion from "./Accordion"
 import OurTours from './OurTours'
 import Menu from './Menu'
+import Tabs from './Tabs'
 
 const projectList = [
   {
@@ -29,6 +30,11 @@ const projectList = [
     id: 4,
     component: Menu,
     name: "Menu"
+  },
+  {
+    id: 5,
+    component: Tabs,
+    name: "Tabs"
   }
 ];
 

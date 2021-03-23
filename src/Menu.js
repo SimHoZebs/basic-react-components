@@ -8,7 +8,6 @@ function Menu() {
 
   useEffect(() => {
     setCurrCategory(document.getElementById("all"))
-    console.log("navbar useeffect");
   }, [])
 
   function categoryButtonClick(category) {
@@ -66,6 +65,7 @@ function Navbar(props) {
 
     {categories.map(category => (
       <button
+        key={category}
         id={category}
         className={style.navbar__button}
         onClick={() => (props.categoryButtonClick(category))}
@@ -79,7 +79,7 @@ function ItemList(props) {
   return (
     <main className={style.itemList}>
       {props.currView.map(item => (
-        <Item item={item} />
+        <Item key={item.id} item={item} />
       ))}
     </main>
   )

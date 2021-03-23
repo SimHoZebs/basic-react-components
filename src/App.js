@@ -16,6 +16,7 @@ const App = () => {
 
       {appData.map((project) =>
         <button
+          key={project.id}
           onClick={
             () => viewProject(project.id)
           }
