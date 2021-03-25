@@ -26,9 +26,19 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+ul,
+ol {
   margin: 0;
 }
+
+/**
+  *Remove all padding in browsers.
+  */
+// ol,
+// ul {
+//   padding: 0;
+// }
 
 /**
  * Render the `main` element consistently in IE.

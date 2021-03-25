@@ -20,6 +20,7 @@ export default function OurTours() {
   function removeCard(id) {
     setTourData((prev) => prev.filter((card) => card.id !== id));
   }
+
   function siteRefresh() {
     setIsLoading((prev) => true);
     fetchTourData();

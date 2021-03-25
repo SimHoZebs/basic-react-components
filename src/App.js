@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import appData from './App-data'
 
-import app from "./css/app.module.css"
+import style from "./css/app.module.css"
 
 const App = () => {
   const [CurrViewProject, setCurrViewProject] = useState(() => appData[0].component);
@@ -11,8 +11,8 @@ const App = () => {
     setCurrViewProject(prev => appData[id].component)
   }
 
-  return <div className={app.container}>
-    <div className={app.buttonsContainer}>
+  return <div className={style.container}>
+    <div className={style.buttonsContainer}>
 
       {appData.map((project) =>
         <button
@@ -20,12 +20,12 @@ const App = () => {
           onClick={
             () => viewProject(project.id)
           }
-          className={app.button}
+          className={style.button}
         >{project.name}</button>
       )}
     </div>
 
-    <main className={app.projectContainer}>
+    <main className={style.projectContainer}>
 
       <CurrViewProject />
     </main>

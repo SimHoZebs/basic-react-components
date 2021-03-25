@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import reviews from './css/reviews.module.css'
+import style from './css/reviews.module.css'
 import reviewsData from './Reviews-data'
 
 import quotationMarks from './media/right-quote-sign.png'
@@ -35,12 +35,12 @@ const Reviews = () => {
     setCurrentReviewId(prev => randomId)
   }
 
-  return <div className={reviews.appContainer}>
-    <header className={reviews.header}>
-      <p className={reviews.header__text}>Our Reviews</p>
-      <div className={reviews.header__underline}></div>
+  return <div className={style.appContainer}>
+    <header className={style.header}>
+      <p className={style.header__text}>Our Reviews</p>
+      <div className={style.header__underline}></div>
     </header>
-    <section className={reviews.card}>
+    <section className={style.card}>
       < ReviewerInfo
         key={id}
         id={id}
@@ -50,13 +50,15 @@ const Reviews = () => {
         text={text}
       />
 
-      <footer className={reviews.card__footer}>
-        <div className={reviews.card__arrowButtonContainer}>
+      <footer className="card__footer"></footer>
+
+      <footer className={style.card__footer}>
+        <div className={style.card__arrowButtonContainer}>
           <input
             type="image"
             src={arrowLeft}
             alt=""
-            className={reviews.card__arrowButton}
+            className={style.card__arrowButton}
             onClick={() => nextReviewer(-1)}
           />
 
@@ -64,34 +66,34 @@ const Reviews = () => {
             type="image"
             src={arrowRight}
             alt=""
-            className={reviews.card__arrowButton}
+            className={style.card__arrowButton}
             onClick={() => nextReviewer(1)}
           />
         </div >
 
-        <button className={reviews.card__surpriseMeButton} onClick={() => randomReviewer(id)}>surprise me</button>
+        <button className={style.card__surpriseMeButton} onClick={() => randomReviewer(id)}>surprise me</button>
       </footer>
     </section>
   </div>
 };
 
 function ReviewerInfo(props) {
-  return <article className={reviews.info} id={props.id}>
-    <picture className={reviews.info__picture}>
-      <div className={reviews.info__imgDecorContainer} >
-        <img src={quotationMarks} alt="" className={reviews.info__imgDecor} />
+  return <article className={style.info} id={props.id}>
+    <picture className={style.info__picture}>
+      <div className={style.info__imgDecorContainer} >
+        <img src={quotationMarks} alt="" className={style.info__imgDecor} />
       </div>
 
       <img
         src={props.image}
-        className={reviews.info__img}
+        className={style.info__img}
         alt="Portrait of the reviewer"
       />
     </picture>
 
-    <p className={reviews.info__name}>{props.name}</p>
-    <p className={reviews.info__job}>{props.job}</p>
-    <p className={reviews.info__text}>{props.text}</p>
+    <p className={style.info__name}>{props.name}</p>
+    <p className={style.info__job}>{props.job}</p>
+    <p className={style.info__text}>{props.text}</p>
   </article>
 }
 
