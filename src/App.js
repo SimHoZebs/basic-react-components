@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import appData from './App-data'
-
 import style from "./css/app.module.css"
 
 const App = () => {

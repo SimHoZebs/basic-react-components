@@ -4,6 +4,7 @@ import Accordion from "./Accordion"
 import OurTours from './OurTours'
 import Menu from './Menu'
 import Tabs from './Tabs'
+import Slider from './Slider'
 
 const projectList = [
   {
@@ -35,6 +36,11 @@ const projectList = [
     id: 5,
     component: Tabs,
     name: "Tabs"
+  },
+  {
+    id: 6,
+    component: Slider,
+    name: "Slider"
   }
 ];
 

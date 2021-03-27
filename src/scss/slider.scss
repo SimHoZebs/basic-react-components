@@ -1,0 +1,153 @@
+$secondaryColor: #ba5d2c;
+$textColor: #617d98;
+$boldColor: #324d67;
+$backgroundColor: #f1f5f8;
+$outlineColor: #bcccdc;
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+  max-height: 100%;
+  background-color: $backgroundColor;
+}
+
+.header {
+  text-align: center;
+  padding-top: 5.625rem;
+  margin-bottom: 4.375rem;
+  letter-spacing: 2px;
+}
+
+.slideContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 50rem;
+  height: 80%;
+  max-height: 70%;
+  max-width: 90vw;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.slideButton {
+  $maxSize: 5vw;
+
+  position: absolute;
+  background-color: $backgroundColor;
+  max-height: $maxSize;
+  max-width: $maxSize;
+  height: 2.5rem;
+  width: 2.5rem;
+  top: 50%;
+  outline: none;
+}
+
+.slideButtonLeft {
+  left: 0;
+}
+
+.slideButtonRight {
+  left: calc(100% - 2.5rem);
+}
+
+.quotationMark {
+  height: 3rem;
+  width: 3rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.slide,
+.leftSlide,
+.rightSlide {
+  width: 50rem;
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 0 3.75rem;
+  position: absolute;
+  text-align: center;
+  opacity: 1;
+
+  &__img {
+    border: 0.25rem solid $outlineColor;
+    margin-bottom: 2rem;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    height: 9.375rem;
+    width: 9.375rem;
+    object-fit: cover;
+  }
+
+  &__name {
+    color: $secondaryColor;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+    letter-spacing: 2px;
+  }
+
+  &__job {
+    color: $textColor;
+    text-transform: capitalize;
+    margin-bottom: 0.75rem;
+  }
+
+  &__text {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.leftSlide {
+  opacity: 0;
+  transform: translate(-100%);
+}
+
+.rightSlide {
+  opacity: 0;
+  transform: translate(100%);
+}
+
+@mixin sideSlideResult($direction) {
+  transform: translate($direction);
+  opacity: 0;
+}
+
+$slideTransitionTIme: 0.5s;
+
+@mixin slideAnimate($animationName) {
+  animation: $animationName $slideTransitionTIme ease-in-out forwards;
+}
+
+@keyframes slideRight {
+  100% {
+    @include sideSlideResult(100%);
+  }
+}
+
+.slideRight {
+  @include slideAnimate(slideRight);
+}
+
+@keyframes slideLeft {
+  100% {
+    @include sideSlideResult((-100%));
+  }
+}
+
+.slideLeft {
+  @include slideAnimate(slideLeft);
+}
+
+@keyframes slideMid {
+  100% {
+    transform: translate(0%);
+    opacity: 1;
+  }
+}
+
+.slideMid {
+  @include slideAnimate(slideMid);
+}
