@@ -74,7 +74,7 @@ function CardDisplay(props) {
   return <article className={`${style.tourCard} ${style.flexContainer} ${style.flexColumn} ${style.alignCenter}`}>
     <img src={props.image} alt="" className={style.tourCard__image} />
 
-    <header className={style.flexContainer}>
+    <header className={`${style.tourCard__header} ${style.flexContainer}`}>
       <p className={style.tourCard__title}> {props.name}</p>
       <p className={style.tourCard__price}>${props.price}</p>
     </header>

@@ -3,8 +3,8 @@ import style from './css/reviews.module.css'
 import reviewsData from './Reviews-data'
 
 import quotationMarks from './media/right-quote-sign.png'
-import arrowRight from './media/arrowRight.png'
-import arrowLeft from './media/arrowLeft.png'
+import arrowRight from './media/RightArrow.svg'
+import arrowLeft from './media/LeftArrow.svg'
 
 const Reviews = () => {
   const [currentReviewId, setCurrentReviewId] = useState(1);

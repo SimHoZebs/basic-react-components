@@ -1,3 +1,4 @@
+$background-color: #ebf7ff;
 $font-color: #49aeef;
 
 .flexContainer {
@@ -19,7 +20,7 @@ $font-color: #49aeef;
 .siteHeader {
   font-size: 3rem;
   text-align: center;
-  margin: 20px;
+  margin: 1.25rem;
   font-weight: 900;
 
   &__underline {
@@ -31,7 +32,7 @@ $font-color: #49aeef;
 
   &__refresh {
     margin-top: 30px;
-    padding: 10px 20px;
+    padding: 10px 1.25rem;
     font-size: 1.5rem;
     font-weight: 500;
     background: $background-color;
@@ -42,9 +43,9 @@ $font-color: #49aeef;
 
 .tourCard {
   background-color: white;
-  margin: 20px 0px;
+  margin: 1.25rem 0px;
   font-size: 1.2rem;
-  width: 800px;
+  width: 38.75rem;
   max-width: 95vw;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.418);
@@ -58,14 +59,14 @@ $font-color: #49aeef;
 
   &__header {
     justify-content: space-between;
-    margin: 20px;
-    margin-bottom: 0px;
+    width: 100%;
+    padding: 1.25rem;
+    padding-bottom: 0px;
   }
 
   &__title {
     font-weight: 700;
     font-size: 1.5rem;
-    vertical-align: middle;
     line-height: normal;
   }
 
@@ -75,13 +76,13 @@ $font-color: #49aeef;
     height: min-content;
     color: $font-color;
     border-radius: 5px;
-    padding: 8px 5px;
+    padding: 0.5rem 5px;
   }
 
   &__summary {
     font-weight: 300;
     text-align: left;
-    margin: 20px 15px;
+    margin: 1.25rem 15px;
   }
 
   &__readMore {
@@ -92,14 +93,14 @@ $font-color: #49aeef;
   }
 
   &__notInterested {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     font-size: 1.2rem;
     color: red;
 
     border: 1px solid red;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     background-color: white;
-    padding: 8px 30px;
+    padding: 0.5rem 30px;
     align-self: center;
   }
 }
