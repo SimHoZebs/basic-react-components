@@ -4,27 +4,33 @@ import reviewsData from './Reviews-data'
 import style from './css/slider.module.css'
 
 import quotationMark from './media/right-quote-sign.png'
-import arrowRight from './media/arrowRight.png'
-import arrowLeft from './media/arrowLeft.png'
+import arrowRight from './media/RightArrow.svg'
+import arrowLeft from './media/LeftArrow.svg'
 
 const slideLastIndex = reviewsData.length - 1;
-const slideDirDict = { "left": style.slideLeft, "right": style.slideRight }
-const sideSlidesDict = { "left": `.${style.rightSlide}`, "right": `.${style.leftSlide}` }
+const slideDirDict = { "prev": style.slideLeft, "next": style.slideRight }
+const sideSlidesDict = { "prev": `.${style.rightSlide}`, "next": `.${style.leftSlide}` }
 
 function Slider() {
   const [currSlideIndex, setCurrSlideIndex] = useState(0)
 
   /*
-  Autosliding
-  - Wait 5 seconds
-  - run button("right")
-  - Button has clearTimeout to remove setTimeout, so that it can be interrupted at any time..? Can it be interrupted by removing?
-  - If button is pressed at anytime, reset Timeout
-  - Wait 5 seconds
+  below interval is set on every render of Slider component.
+  button() re-renders the slider component while removing the interval,
+  effectively resetting the timer.
   */
+  const autoSliding = setInterval(() => {
+    button("prev")
+  }, 5000)
 
+  useEffect(() => {
+    return () => clearInterval(autoSliding);
+
+  }, [autoSliding])
 
   function button(side) {
+    clearInterval(autoSliding)
+
     const currSlide = document.querySelector(`.${style.slide}`)
     const sideSlide = document.querySelector(sideSlidesDict[side])
 
@@ -32,13 +38,14 @@ function Slider() {
     sideSlide.classList.add(style.slideMid)
 
     setTimeout(() => {
-      setCurrSlideIndex(prev => (side === "right"
+      setCurrSlideIndex(prev => (side === "next"
         ? prev === 0 ? slideLastIndex : prev - 1
         : prev === slideLastIndex ? 0 : prev + 1))
 
       currSlide.classList.remove(slideDirDict[side])
       sideSlide.classList.remove(style.slideMid)
     }, 500)
+
   }
 
   return (
@@ -70,7 +77,7 @@ function Slider() {
           type="image"
           src={arrowLeft}
           alt="Previous slide button"
-          onClick={() => button("left")}
+          onClick={() => button("prev")}
           className={`${style.slideButton} ${style.slideButtonLeft}`}
         />
 
@@ -78,7 +85,7 @@ function Slider() {
           type="image"
           src={arrowRight}
           alt="Next slide button"
-          onClick={() => button("right")}
+          onClick={() => button("next")}
           className={`${style.slideButton} ${style.slideButtonRight}`}
         />
       </section>

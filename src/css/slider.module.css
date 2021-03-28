@@ -1,10 +1,7 @@
 .slider {
-  display: flex;
-  flex-direction: column;
   position: relative;
-  height: 100%;
-  max-height: 100%;
   background-color: #f1f5f8;
+  height: 100%;
 }
 
 .header {
@@ -19,8 +16,6 @@
   display: flex;
   justify-content: center;
   width: 50rem;
-  height: 80%;
-  max-height: 70%;
   max-width: 90vw;
   overflow: hidden;
   margin: 0 auto;
@@ -28,7 +23,6 @@
 
 .slideButton {
   position: absolute;
-  background-color: #f1f5f8;
   max-height: 5vw;
   max-width: 5vw;
   height: 2.5rem;
@@ -55,11 +49,10 @@
 .slide,
 .leftSlide,
 .rightSlide {
-  width: 50rem;
   max-width: 90%;
   margin: 0 auto;
   padding: 0 3.75rem;
-  position: absolute;
+  position: relative;
   text-align: center;
   opacity: 1;
 }
@@ -88,7 +81,7 @@
 .slide__job,
 .leftSlide__job,
 .rightSlide__job {
-  color: #617d98;
+  color: #324d67;
   text-transform: capitalize;
   margin-bottom: 0.75rem;
 }
@@ -98,14 +91,17 @@
 .rightSlide__text {
   margin-top: 2rem;
   margin-bottom: 1rem;
+  color: #617d98;
 }
 
 .leftSlide {
   opacity: 0;
+  position: absolute;
   transform: translate(-100%);
 }
 
 .rightSlide {
+  position: absolute;
   opacity: 0;
   transform: translate(100%);
 }
@@ -141,4 +137,16 @@
 
 .slideMid {
   animation: slideMid 0.5s ease-in-out forwards;
+}
+
+@media only screen and (max-width: 500px) {
+  .header {
+    padding-top: 3rem;
+    margin-bottom: 2rem;
+  }
+  .slide,
+  .leftSlide,
+  .rightSlide {
+    padding: 0 1rem;
+  }
 }

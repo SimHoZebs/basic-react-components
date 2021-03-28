@@ -5,12 +5,9 @@ $backgroundColor: #f1f5f8;
 $outlineColor: #bcccdc;
 
 .slider {
-  display: flex;
-  flex-direction: column;
   position: relative;
-  height: 100%;
-  max-height: 100%;
   background-color: $backgroundColor;
+  height: 100%;
 }
 
 .header {
@@ -25,8 +22,6 @@ $outlineColor: #bcccdc;
   display: flex;
   justify-content: center;
   width: 50rem;
-  height: 80%;
-  max-height: 70%;
   max-width: 90vw;
   overflow: hidden;
   margin: 0 auto;
@@ -36,7 +31,6 @@ $outlineColor: #bcccdc;
   $maxSize: 5vw;
 
   position: absolute;
-  background-color: $backgroundColor;
   max-height: $maxSize;
   max-width: $maxSize;
   height: 2.5rem;
@@ -63,11 +57,10 @@ $outlineColor: #bcccdc;
 .slide,
 .leftSlide,
 .rightSlide {
-  width: 50rem;
   max-width: 90%;
   margin: 0 auto;
   padding: 0 3.75rem;
-  position: absolute;
+  position: relative;
   text-align: center;
   opacity: 1;
 
@@ -89,7 +82,7 @@ $outlineColor: #bcccdc;
   }
 
   &__job {
-    color: $textColor;
+    color: $boldColor;
     text-transform: capitalize;
     margin-bottom: 0.75rem;
   }
@@ -97,18 +90,23 @@ $outlineColor: #bcccdc;
   &__text {
     margin-top: 2rem;
     margin-bottom: 1rem;
+    color: $textColor;
   }
 }
 
 .leftSlide {
   opacity: 0;
+  position: absolute;
   transform: translate(-100%);
 }
 
 .rightSlide {
+  position: absolute;
   opacity: 0;
   transform: translate(100%);
 }
+
+///Animation///
 
 @mixin sideSlideResult($direction) {
   transform: translate($direction);
@@ -151,3 +149,18 @@ $slideTransitionTIme: 0.5s;
 .slideMid {
   @include slideAnimate(slideMid);
 }
+///Animation///
+
+///responsive///
+@media only screen and (max-width: 500px) {
+  .header {
+    padding-top: 3rem;
+    margin-bottom: 2rem;
+  }
+  .slide,
+  .leftSlide,
+  .rightSlide {
+    padding: 0 1rem;
+  }
+}
+///responsive///
